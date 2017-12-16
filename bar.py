@@ -38,7 +38,8 @@ class VerticalBar(Bar):
         return (abs(pos.x - self.point1.x) < 1) or ((pos.y >= self.point1.y) and (pos.y <= self.point2.y))
 
 
-bar = HorizontalBar(x1=0, x2=100, y=0)
-bar = VerticalBar(x=100, y1=0, y2=50)
-bar = HorizontalBar(x1=0, x2=-100, y=-100)
-sleep(5)
+if __name__ == '__main__':
+    bar = HorizontalBar(x1=0, x2=100, y=0)
+    bar = VerticalBar(x=100, y1=0, y2=50)
+    bar = HorizontalBar(x1=0, x2=-100, y=-100)
+    sleep(5)
