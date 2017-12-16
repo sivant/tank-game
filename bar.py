@@ -24,8 +24,7 @@ class Bar:
 
 class HorizontalBar(Bar):
     def __init__(self, x1: int, x2: int, y: int):
-        x1, x2 = min(x1, x2), max(x1, x2)
-        Bar.__init__(self, Point(x1, y), Point(x2, y))
+        Bar.__init__(self, Point(min(x1, x2), y), Point(max(x1, x2), y))
 
     def collision(self, pos: Point):
         return (abs(pos.y - self.point1.y) < 1) or ((pos.x >= self.point1.x) and (pos.x <= self.point2.x))
@@ -33,8 +32,7 @@ class HorizontalBar(Bar):
 
 class VerticalBar(Bar):
     def __init__(self, x: int, y1: int, y2: int):
-        y1, y2 = min(y1, y2), max(y1, y2)
-        Bar.__init__(self, Point(x, y1), Point(x, y2))
+        Bar.__init__(self, Point(x, min(y1, y2)), Point(x, max(y1, y2)))
 
     def collision(self, pos: Point):
         return (abs(pos.x - self.point1.x) < 1) or ((pos.y >= self.point1.y) and (pos.y <= self.point2.y))
